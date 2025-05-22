@@ -4,7 +4,8 @@ makedocs(
     sitename = "GSoC Documentation",
     format = Documenter.HTML(),
     pages = [
-        "Home" => "index.md"
+        "Home" => "index.md",
+        "Community-bonding Period" => "community-bonding.md",
     ]
 )
 
