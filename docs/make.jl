@@ -4,14 +4,15 @@ makedocs(
     sitename = "GSoC Documentation",
     format = Documenter.HTML(
         prettyurls = get(ENV, "CI", nothing) == "true",
-        canonical = "https://rahbanghani.github.io/gsoc-documentation/",
+        canonical = "https://rahban1.github.io/gsoc-documenter/",
         assets = String[],
         analytics = "UA-XXXXXXXXX-X"
     ),
     pages = [
         "Home" => "index.md",
         "Community-bonding Period" => "community-bonding.md",
-    ]
+    ],
+    build = "../public"
 )
 
 deploydocs(
