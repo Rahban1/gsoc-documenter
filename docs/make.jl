@@ -15,7 +15,7 @@ makedocs(
 )
 
 deploydocs(
-    repo = "github.com/rahbanghani/gsoc-documentation.git",
+    repo = "github.com/Rahban1/gsoc-documentation.git",
     target = "build",
     push_preview = true
 )
