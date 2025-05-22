@@ -12,7 +12,6 @@ makedocs(
         "Home" => "index.md",
         "Community-bonding Period" => "community-bonding.md",
     ],
-    build = "../public"
 )
 
 deploydocs(
