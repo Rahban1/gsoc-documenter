@@ -2,6 +2,7 @@ using Documenter
 
 makedocs(
     sitename = "GSoC Documentation",
+    logo = "assets/gsoc_logo.png",
     format = Documenter.HTML(
         prettyurls = get(ENV, "CI", nothing) == "true",
         canonical = "https://rahban1.github.io/gsoc-documenter/",
