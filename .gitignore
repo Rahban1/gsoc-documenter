@@ -1,5 +1,4 @@
 # Documentation build directory
-docs/build/
 
 # Julia package files
 *.jl.*.cov
