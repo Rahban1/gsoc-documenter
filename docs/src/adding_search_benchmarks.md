@@ -49,5 +49,49 @@ For now, I am using three metrics for calculating benchmarks namely :
     - $F_1 = 2 \times \frac{\text{precision} \times \text{recall}}{\text{precision} + \text{recall}}$
 
 
+## Helper functions 
 
-I have create utility functions to measure each search quality, a wrapper to evaluate one query and another wrapper to run a whole set of queries and summarize the results.
+Now let's create a function that evaluate all these metrics for a single query
+
+It'll look something like this :
+```julia
+function evaluate_query(search_function, query::TestQuery)
+    results = search_function(query.query)
+
+    precision = calculate_precision(results, query.expected_docs)
+    recall = calculate_recall(results, query.expected_docs)
+    f1 = calculate_f1(precision, recall)
+
+    return Dict(
+        "query" => query.query,
+        "precision" => precision,
+        "recall" => recall,
+        "f1" => f1,
+        "expected" => query.expected_docs,
+        "actual" => results
+    )
+end
+```
+
+This will return a dictionary that have all the relevant results.
+We still have to create the search function that will search the query in our actual search implementation.
+
+This looks good, now we need to create a function that evaluate all metrics for a suite of queries, which would essentially be calling the ```evaluate_query``` function for array of queries, and then calculating the mean of all results for each metric and return a dictionary similar to ```evaluate_query``` function
+
+It look something like this : 
+```julia
+function evaluate_all(search_function, queries)
+    results = [evaluate_query(search_function, q) for q in queries]
+
+    avg_precision = mean([r["precision"] for r in results])
+    avg_recall = mean([r["recall"] for r in results])
+    avg_f1 = mean([r["f1"] for r in results])
+
+    return Dict(
+        "individual_results" => results,
+        "average_precision" => avg_precision,
+        "average_recall" => avg_recall,
+        "average_f1_score" => avg_f1
+    )
+end
+```
