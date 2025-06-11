@@ -95,3 +95,13 @@ function evaluate_all(search_function, queries)
     )
 end
 ```
+
+## The Meeting #2
+
+We had our weekly meeting and there were few suggested edits which we are going to implement :
+ - use struct instead of dictionary to return the search results.
+ - just display the overall result in the terminal and rest all of the detailed results should be written in a text file.
+ - the returning struct should also contain integers like ```total_documents_retrieved, total_relevant_found``` along with float. 
+ - Write short, descriptive comments explain the code
+ - my mentors has advised me to open a pr, so that other people can see and give their suggestions on the work done till now how here the open pr link : [PR Link](https://github.com/JuliaDocs/Documenter.jl/pull/2740)
+
