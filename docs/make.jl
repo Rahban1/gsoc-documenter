@@ -10,7 +10,7 @@ makedocs(
     ),
     pages = [
         "Home" => "index.md",
-        "Deliverable Summary" => Any["adding_search_benchmarks.md",]
+        "Deliverable Summary" => Any["adding_search_benchmarks.md","improving_tokenizer.md"]
     ],
     build = "build",
 )
