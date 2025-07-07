@@ -248,3 +248,105 @@ I did gave a try to the second option but finally I have gone with the first app
 
 so initially I created a string only with all the JS code and named it wrapper_js and just read it, but that end up becoming a very big string so my mentor suggested to have a seperate .js file and read it from there so we are doing that and injecting data using placeholders so now we don't have to spin the full browser to test the search functionality, which would be much slower
 
+## Adding Make Command
+
+My mentor suggested to add a make command that run these tests, I named it `search-benchmarks`
+
+the command is pretty simple : 
+
+```makefile
+search-benchmarks:
+	${JULIA} --project test/search/run_benchmarks.jl
+```
+
+added 
+
+```makefile
+rm -f test/search/search_benchmark_results_*.txt
+```
+to the clean command
+
+and added the search-benchmarks command to the PHONY so it doesn't interpret it as a file rather than a command
+
+```makefile
+.PHONY: default docs-instantiate themes help changelog docs test search-benchmarks
+```
+
+and finally added this
+
+```makefile
+@echo " - make search-benchmarks: run search functionality benchmarks"
+```
+in the help command to tell the people what does the command do
+
+and now our command works like a charm!
+
+## Running Benchmarks on CI
+My mentor asked to add a simple CI job that run these benchmarks, so I created a Github Actions workflow, named it `Benchmarks` (quite creative!) 
+
+so whenever code is pushed to the master repo, or when someone opens a pull request or when it is triggered manually and ensuring only one workflow run at a time using concurrency for the same branch or pull request it does :
+ - Checkouts the code 
+ - Setup Julia
+ - Cache the Julia packages
+ - Build Julia packages
+ - Run Benchmarks
+
+After I showed it to my mentor he suggested to also upload the full benchmark output as an artifact which can be downloaded by anybody, great idea!
+
+but later he suggested a much better idea, earlier I had a seperate CI job named benchmark.yml so he suggested to not make a seperate job rather put this in the old CI.yml and make it depend on the main suite where the manual is build anyway so we could upload that from the CI run and then download that into this benchmarking job, so we don't have to rebuild the manual for benchmark again
+
+so this is what the final job looks like inside `CI.yml`
+
+```yml
+benchmarks:
+    name: Julia ${{ matrix.version }} - ${{ matrix.os }} - ${{ matrix.arch }}
+    runs-on: ${{ matrix.os }}
+    needs: docs
+    strategy:
+      fail-fast: false
+      matrix:
+        version:
+          - '1'
+        os:
+          - ubuntu-latest
+        arch:
+          - x64
+    steps:
+      - uses: actions/checkout@v4
+      - uses: julia-actions/setup-julia@v2
+        with:
+          version: ${{ matrix.version }}
+          arch: ${{ matrix.arch }}
+          show-versioninfo: true
+      - uses: julia-actions/cache@v2
+      - uses: julia-actions/julia-buildpkg@v1
+      - name: Download search index
+        uses: actions/download-artifact@v4
+        with:
+          name: search-index
+          path: docs/build
+      - name: Build test examples
+        shell: julia --color=yes --project=test/examples {0}
+        run: |
+          using Pkg
+          Pkg.instantiate()
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+      - name: Install Node.js dependencies
+        run: npm install
+        working-directory: test/search
+      - name: Run search benchmarks
+        run: make search-benchmarks
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Upload search benchmark results
+        uses: actions/upload-artifact@v4
+        with:
+          name: search-benchmark-results
+          path: test/search/search_benchmark_results_*.txt
+```
+
+so now in CI the test are running taking the search index from the previous CI and then giving the ability to download the detailed benchmark report. Neat!
