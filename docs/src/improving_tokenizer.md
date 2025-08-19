@@ -1,5 +1,7 @@
 # Updating Tokenizer
 
+### Relevant PR : [#2744](https://github.com/JuliaDocs/Documenter.jl/pull/2744)
+
 ## Understanding the task
 
 A tokenizer is a component of a search engine that processes text by breaking it down into smaller units called tokens. These tokens are then indexed and used to match search queries against the content.

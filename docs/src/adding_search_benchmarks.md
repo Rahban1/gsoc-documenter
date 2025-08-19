@@ -1,5 +1,7 @@
 # Adding Search Benchmarks
 
+### Relevant PR : [#2740](https://github.com/JuliaDocs/Documenter.jl/pull/2740)
+
 We had our first meeting, and we discussed what would be the flow of the entire internshiop and also discussed how to go about the first deliverable as per the proposal which is **Adding Search Benchmarks**.  
 
 We discussed what should be the language of choice for writing scripts for benchmarking, we had two possible candidates, one was Julia (for obvious reasons, since the whole repo is in Julia) and the other one was JavaScript since the search functionality is implemented in JavaScript so it would be easier to interact with the search functionality.  
