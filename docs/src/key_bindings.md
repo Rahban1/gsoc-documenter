@@ -87,4 +87,4 @@ if (searchResults.length > 0) {
         }
 ```
 
-oh beautiful and much more readable. Thank you [Hetarth Shah](https://github.com/Hetarth02)
+oh so beautiful and much more readable. Thank you [Hetarth Shah](https://github.com/Hetarth02)
