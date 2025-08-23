@@ -1,6 +1,6 @@
 # Improving Search functionality for Documenter.jl
 
-## Final Work Report for the Google Summer of Code 2025 under `Julia`
+## Final Work Report for the Google Summer of Code 2025 under Julia
 
 ## Contributor Info
 
