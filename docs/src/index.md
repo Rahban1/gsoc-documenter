@@ -4,7 +4,7 @@
 
 ## Abstract
 
-In this project the main idea was to improve the search functionality of documenter so I did the following things :
+In this project I had to improve the search functionality of documenter so I did the following things :
  - The first thing I did is to create some benchmarks to test that upcoming improvements.
  - Then I created a test manual and tested it on the benchmarks.
  - Then I created a custom tokenizer so that you can now search symbols along with text and the search result now come based on a priority list which is based on user's preference.
@@ -12,6 +12,14 @@ In this project the main idea was to improve the search functionality of documen
  - Also now documenter gives you warning when your search index size exceeds a specific threshold.
  - I also created a developer doc for explaining how search functionality works in Documenter.
  - One of my mentor suggested that we should add navigation functionality using keyboard in the search modal so people can navigate using up and down keys so I did that
+
+## Pull Requests
+- [Adding the complete architecture for search benchmarking](https://github.com/JuliaDocs/Documenter.jl/pull/2740)
+- [Create a test manual and test it on the benchmarks](https://github.com/JuliaDocs/Documenter.jl/pull/2757)
+- [Improving the tokenizer](https://github.com/JuliaDocs/Documenter.jl/pull/2744)
+- [Warn when the search index size is too big](https://github.com/JuliaDocs/Documenter.jl/pull/2753)
+- [Now the page category is removed and everything is concatenated into sections](https://github.com/JuliaDocs/Documenter.jl/pull/2762)
+- [Navigate search modal using up and down keys](https://github.com/JuliaDocs/Documenter.jl/pull/2761)
 
 ## Contributor Info
 
@@ -26,13 +34,6 @@ In this project the main idea was to improve the search functionality of documen
 - [Morten Piibeleht](https://github.com/mortenpi)
 - [Hetarth Shah](https://github.com/Hetarth02)
 
-## Pull Requests
-- [Adding the complete architecture for search benchmarking](https://github.com/JuliaDocs/Documenter.jl/pull/2740)
-- [Create a test manual and test it on the benchmarks](https://github.com/JuliaDocs/Documenter.jl/pull/2757)
-- [Improving the tokenizer](https://github.com/JuliaDocs/Documenter.jl/pull/2744)
-- [Warn when the search index size is too big](https://github.com/JuliaDocs/Documenter.jl/pull/2753)
-- [Now the page category is removed and everything is concatenated into sections](https://github.com/JuliaDocs/Documenter.jl/pull/2762)
-- [Navigate search modal using up and down keys](https://github.com/JuliaDocs/Documenter.jl/pull/2761)
 
 ## GSoC Project Page
 - [GSoC 2025 with Julia - Improving search functionality for Documenter.jl](https://summerofcode.withgoogle.com/programs/2025/projects/KGUrSI9I)
