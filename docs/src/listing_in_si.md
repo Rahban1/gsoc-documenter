@@ -135,4 +135,6 @@ these are some before and after results. Thank you Morten for sharing this :)
 ![second](assets/2.png)
 ![third](assets/3.png)
 
+There is considerable improvement in the size of the search index and relevance of search results.
+
 
