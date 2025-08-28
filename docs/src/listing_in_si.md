@@ -129,4 +129,10 @@ now it looks like this :
 
 ![after](assets/second.png)
 
+these are some before and after results. Thank you Morten for sharing this :)
+![fourth](assets/4.png)
+![first](assets/1.png)
+![second](assets/2.png)
+![third](assets/3.png)
+
 
