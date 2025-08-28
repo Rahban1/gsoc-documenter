@@ -5,13 +5,13 @@
 ## Abstract
 
 In this project I had to improve the search functionality of documenter so I did the following things :
- - The first thing I did is to create some benchmarks to test that upcoming improvements.
- - Then I created a test manual and tested it on the benchmarks.
- - Then I created a custom tokenizer so that you can now search symbols along with text and the search result now come based on a priority list which is based on user's preference.
- -  Next I investigated how can I make the search index better so me along with my mentors finalized to remove the page category from the search index and make everything a section to reduce the search index size and make the search much more intuitive.
- - Also now documenter gives you warning when your search index size exceeds a specific threshold.
- - I also created a developer doc for explaining how search functionality works in Documenter.
- - One of my mentor suggested that we should add navigation functionality using keyboard in the search modal so people can navigate using up and down keys so I did that
+ - The first thing I did is to [add search benchmarks](adding_search_benchmarks.md) to test that upcoming improvements.
+ - Then I [created a test manual](creating_test_manual.md) and tested it on the benchmarks.
+ - Then I [created a custom tokenizer](improving_tokenizer.md) so that you can now search symbols along with text and the search result now come based on a priority list which is based on user's preference.
+ -  Next I investigated how can I make the search index better so me along with my mentors finalized to [remove the page category from the search index and make everything a section](listing_in_si.md) to reduce the search index size and make the search much more intuitive.
+ - Also now [documenter gives you warning when your search index size exceeds a specific threshold](warn_when_si_big.md).
+ - I also created a [developer doc](dev_docs_for_search.md) for explaining how search functionality works in Documenter.
+ - One of my mentor suggested that we should [add navigation functionality using keyboard](key_bindings.md) in the search modal so people can navigate using up and down keys so I did that
 
 ## Pull Requests
 - [Adding the complete architecture for search benchmarking](https://github.com/JuliaDocs/Documenter.jl/pull/2740)
